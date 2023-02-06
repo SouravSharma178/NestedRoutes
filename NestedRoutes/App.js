@@ -7,6 +7,7 @@ import "./styles.css";
 import Error from "./Components/Error";
 import Insta from "./Components/Insta";
 import Facebook from "./Components/Facebook";
+import UserDetails from "./Components/UserDetails";
 
 function App() {
   return (
@@ -14,10 +15,12 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/home/:userId" element={<UserDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />}>
-            <Route path="instagram" element={<Insta />} />
+            <Route index element={<Insta />} />
+            <Route index path="instagram" element={<Insta />} />
             <Route path="facebook" element={<Facebook />} />
           </Route>
           <Route path="*" element={<Error />} />
